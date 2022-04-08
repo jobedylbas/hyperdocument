@@ -1,0 +1,29 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body
+                    h5.card-title='Pokemons da Geração ' + id
+
+                    table.table.table-striped
+                        thead
+                            tr
+                            th(scope='col') Nome
+                            th(scope='col') Imagem
+                            th(scope='col') Tipo
+                        tbody
+                            each pokemon in pokemons
+                                tr
+                                td
+                                    a(href='/pokemon?id='+pokemon.id)= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                                td
+                                    img(src=pokemon.sprites.other['official-artwork'].front_default, style='width:96px; height:96px;')
+                                td
+                                    each pokemonTypes in pokemon.types
+                                            a(href=pokemonTypes.type.url)= pokemonTypes.type.name
+                                            | , 
+                                tr

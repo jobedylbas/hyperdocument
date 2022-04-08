@@ -1,0 +1,35 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                //- img.card-img-top(src='...' alt='...')
+                .card-body
+                    h5.card-title Gerações e Regiões 
+                    p.card-text 
+                    | Ao todo existem 9 gerações de Pokémons, aqui você encontrará pelo menos 7 delas, cada geração 
+                    | corresponde a uma nova região introduzindo novas espécies:
+
+                    ul.mt-3.list-group.col-sm-4
+                        li.list-group-item 
+                            a(href="/generation?id=1&limit=151") 1º Geração: Região Kanto
+                        li.list-group-item 
+                            a(href="/generation?id=2&limit=100&offset=151") 2º Geração: Região Johto
+                        li.list-group-item 
+                            a(href="/generation?id=3&limit=135&offset=251") 3º Geração: Região Hoenn
+                        li.list-group-item
+                            a(href="/generation?id=4&limit=107&offset=386") 4º Geração: Região Sinnoh
+                        li.list-group-item 
+                            a(href="/generation?id=5&limit=156&ffset=493") 5º Geração: Região Unova
+                        li.list-group-item 
+                            a(href="/generation?id=6&limit=72&offset=649") 6º Geração: Região Kalos
+                        li.list-group-item
+                            a(href="/generation?id=7&limit=88&offset=721") 7º Geração: Região Alola
+                        li.list-group-item
+                            a(href="/generation?id=8&limit=96&offset=809") 8º Geração: Região Galar
+                        li.list-group-item 9º Geração: Região Hisui (Em andamento)
+
+

@@ -1,0 +1,17 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body.flex
+                    h5.card-title Erro 404 - Página não encontrada
+                    div.text-center
+                        img.p-5.card-img-topimg(src='/public/images/missingno.jpg')
+                    p.card-text.text-center 
+                        | A página que você procura não foi encontrada, por favor retorne a 
+                        a(href='/') página inicial
+                        |  para ter uma melhor experiência.
+

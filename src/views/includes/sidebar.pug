@@ -1,0 +1,93 @@
+.flex-shrink-0.p-3.bg-white(style='width: 280px;').fill-height
+    a.d-flex.align-items-center.pb-3.mb-3.link-dark.text-decoration-none.border-bottom(href='/')
+        img.me-2.d-sm-none.d-lg-inline(src='/public/images/pokeball.svg', alt='Poquebola', width="24", height="24")
+        span.fs-5.fw-semibold Pokédex
+    ul.list-unstyled.ps-0
+        li.mb-1
+            ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
+                li
+                    a.link-dark.rounded(href='/') Página Inicial
+                li
+                    - var rand = Math.floor(Math.random() * 898 + 1);
+                    a.link-dark.rounded(href='/pokemon?id='+rand) Pokémon aleatório
+                li
+                    a.link-dark.rounded(href="/pokemons") Pokémons
+                li
+                    a.link-dark.rounded(href="/abilities") Habilidades
+        li.mb-1
+            button.btn.btn-toggle.align-items-center.rounded.collapsed(data-bs-toggle='collapse' data-bs-target='#generations-collapse' aria-expanded='false')
+                | Gerações
+            #generations-collapse.collapse
+                ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
+                    li
+                        a.link-dark.rounded(href="/generation?id=1&limit=151") 1º Geração: Região Kanto
+                    li
+                        a.link-dark.rounded(href="/generation?id=2&limit=100&offset=151") 2º Geração: Região Johto
+                    li
+                        a.link-dark.rounded(href="/generation?id=3&limit=135&offset=251") 3º Geração: Região Hoenn
+                    li
+                        a.link-dark.rounded(href="/generation?id=4&limit=107&offset=386") 4º Geração: Região Sinnoh
+                    li
+                        a.link-dark.rounded(href="/generation?id=5&limit=156&ffset=493") 5º Geração: Região Unova
+                    li
+                        a.link-dark.rounded(href="/generation?id=6&limit=72&offset=649") 6º Geração: Região Kalos
+                    li
+                        a.link-dark.rounded(href="/generation?id=7&limit=88&offset=721") 7º Geração: Região Alola
+                    li
+                        a.link-dark.rounded(href="/generation?id=8&limit=96&offset=809") 8º Geração: Região Galar
+
+        li.mb-1
+            button.btn.btn-toggle.align-items-center.rounded.collapsed(data-bs-toggle='collapse' data-bs-target='#types-collapse' aria-expanded='false')
+                | Tipos
+            #types-collapse.collapse
+                ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/1/') normal
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/2/') fighting
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/3/') flying
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/4/') poison
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/5/') ground
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/6/') rock
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/7/') bug
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/8/') ghost
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/9/') steel
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/10/') fire
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/11/') water
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/12/') grass
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/13/') electric
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/14/') psychic
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/15/') ice
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/16/') dragon
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/17/') dark
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/18/') fairy
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/10001/') unknown
+                    li
+                        a.link-dark.rounded(href='/type?id=https://pokeapi.co/api/v2/type/10002/') shadow
+
+                            
+        li.border-top.my-3
+        li.mb-1
+            button.btn.btn-toggle.align-items-center.rounded.collapsed(data-bs-toggle='collapse' data-bs-target='#account-collapse' aria-expanded='false')
+                | Institucional
+            #account-collapse.collapse
+                ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
+                    li
+                        a.link-dark.rounded(href='/about') Sobre

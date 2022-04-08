@@ -1,0 +1,22 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                //- img.card-img-top(src='...' alt='...')
+                .card-body
+                    h5.card-title Tipos
+                    p.card-text 
+                    | Os tipos são propriedades dos Pokémons que podem ter um ou dois tipos associados e afetam o poder de seus movimentos.
+                    | Entretanto, cada movimento possui um tipo só, podendo ser removido através de outros movimentos. Caso um movimento 
+                    | possua um tipo e seja utilizado em um outro Pokémon poderá ser super efetivo, caso o tipo do Pokémon tenha uma fraqueza 
+                    | ao tipo do movimento. Existem outros casos como não muito efetivo quando o Pokémon possui resistência ao tipo do movimento,
+                    | e inefetivo, quando o Pokémon não é afetado pelo tipo de movimento.
+
+                    ul.mt-3.list-group.col-sm-4
+                        each tipo in response.results
+                            li.list-group-item 
+                                a(href="/type?id="+tipo.url)= tipo.name

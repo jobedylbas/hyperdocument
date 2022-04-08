@@ -1,0 +1,33 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                //- img.card-img-top(src='...' alt='...')
+                .card-body
+                    h5.card-title Bem-vindo a Enciclopédia Pokémon
+                    p.card-text 
+                    | Aqui você poderá explorar o mundo Pokémon através das suas 
+                    a(href="/generations") gerações/regiões
+                    |, 
+                    a(href="/pokemons") pokémons
+                    |, 
+                    a(href="/types") tipos 
+                    | e 
+                    a(href="/abilities") habilidades 
+                    |  Em gerações você terá uma lista de pokémons de cada 
+                    | geração, já em pokémons uma lista com todos os pokémons assim como em tipos e habilidades.
+                    ul.mt-3.list-group.col-sm-4
+                        li.list-group-item 
+                            a(href="/generations") Gerações
+                        li.list-group-item 
+                            a(href="/pokemons") Pokémons
+                        li.list-group-item 
+                            a(href="/types") Tipos
+                        li.list-group-item
+                            a(href="/abilities") Habilidades
+
+

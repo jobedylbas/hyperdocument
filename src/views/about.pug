@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body
+                    h5.card-title Sobre
+                    p.card-text 
+                        | Este é o trabalho prático da cadeira INF01021 - Projeto de Hiperdocumentos da 
+                        a(href='https://www.ufrgs.br', target='_blank') Universidade Federal do Rio Grande do Sul (UFRGS)
+                        |  referente ao semestre 2021/2 e visa implementar uma enciclopédia 
+                        a(href='/pokemons') Pokémon
+                        |  utilizando os conceitos de roteiro guiado, indexado e guiado indexado.

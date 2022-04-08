@@ -1,0 +1,60 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body.flex
+                    h5.card-title= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                    div.text-center
+                        a(href='/pokemon?id='+(pokemon.id-1))
+                            button.btn.btn-primary.float-start.mt-5.ms-5
+                                p.mb-1.me-1= '<'
+                        a(href='/pokemon?id='+(pokemon.id+1))
+                            button.btn.btn-primary.float-end.mt-5.me-5 
+                                p.mb-1.me-1= '>'
+
+                        img.card-img-topimg(src=pokemon.sprites.other['official-artwork'].front_default, style='width:128px; height:128px;')
+                    div.m-5
+                        table.table.m-2
+                            thead
+                            tbody
+                                tr
+                                td id
+                                td= pokemon.id
+                                tr
+                                td Peso
+                                td= pokemon.weight 
+                                tr                                
+                                td Altura
+                                td= pokemon.height 
+                                tr
+                                td Tipos
+                                td
+                                    each pokemonTypes in pokemon.types
+                                            a(href=pokemonTypes.type.url)= pokemonTypes.type.name
+                                            | , 
+                                tr
+                                td Habilidades
+                                td 
+                                    each pokemonAbility in pokemon.abilities
+                                        a(href=pokemonAbility.ability.url)= pokemonAbility.ability.name
+                                        | , 
+                                tr 
+                                td Movimentos
+                                td
+                                    each pokemonMoves in pokemon.moves
+                                            a(href=pokemonMoves.move.url)= pokemonMoves.move.name
+                                            | , 
+                                tr
+                                - var statNames = ['Vida', 'Ataque', 'Defesa', 'Ataque Especial', 'Defesa Especial', 'Velocidade']
+                                each stat in [0, 1, 2, 3, 4, 5]
+                                    tr
+                                    td= statNames[stat]
+                                    td= pokemon.stats[stat].base_stat
+                                    tr
+
+
+
