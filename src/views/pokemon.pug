@@ -1,18 +1,18 @@
 extends layout 
 
 block content
-    main
+    main.flex
         include includes/sidebar
         .container
             include includes/navbar
             .card.m-2
-                .card-body.flex
+                .card-body
                     h5.card-title= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
                     div.text-center
-                        a(href='/pokemon?id='+(pokemon.id-1))
+                        a(href='/pokemons/pokemon?id='+(pokemon.id-1))
                             button.btn.btn-primary.float-start.mt-5.ms-5
                                 p.mb-1.me-1= '<'
-                        a(href='/pokemon?id='+(pokemon.id+1))
+                        a(href='/pokemons/pokemon?id='+(pokemon.id+1))
                             button.btn.btn-primary.float-end.mt-5.me-5 
                                 p.mb-1.me-1= '>'
 
@@ -55,6 +55,4 @@ block content
                                     td= statNames[stat]
                                     td= pokemon.stats[stat].base_stat
                                     tr
-
-
 

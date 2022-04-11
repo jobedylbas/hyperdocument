@@ -1,0 +1,72 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body.flex
+                    h5.card-title= 'Tipo ' + response.name.charAt(0).toUpperCase() + response.name.slice(1)
+                    div.m-5
+                        table.table.m-2
+                            thead
+                            tbody
+                                tr
+                                if response.damage_relations.double_damage_from != 0
+                                    td Dobro de dano de
+                                    td
+                                        each t in response.damage_relations.double_damage_from
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                if response.damage_relations.double_damage_to.length != 0
+                                    td Dobro de dano em
+                                    td
+                                        each t in response.damage_relations.double_damage_to
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                if response.damage_relations.half_damage_from != 0
+                                    td Metade de dano de
+                                    td
+                                        each t in response.damage_relations.half_damage_from
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                if response.damage_relations.half_damage_to != 0
+                                    td Metade de dano em
+                                    td
+                                        each t in response.damage_relations.half_damage_to
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                if response.damage_relations.no_damage_from != 0
+                                    td Não recebe dano de
+                                    td
+                                        each t in response.damage_relations.no_damage_from
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                if response.damage_relations.no_damage_to != 0
+                                    td Inefetivo em
+                                    td
+                                        each t in response.damage_relations.no_damage_to
+                                            - let arr = t.url.split('/')
+                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            | , 
+                                    tr
+                                td Classe
+                                td= response.move_damage_class.name
+                                tr
+                                td Pokemons
+                                td
+                                    each poke in response.pokemon
+                                        a(href='/pokemons/pokemon?id='+(poke.pokemon.url))= poke.pokemon.name
+                                        | , 
+                                tr

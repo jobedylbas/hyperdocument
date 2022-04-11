@@ -19,4 +19,5 @@ block content
                     ul.mt-3.list-group.col-sm-4
                         each tipo in response.results
                             li.list-group-item 
-                                a(href="/type?id="+tipo.url)= tipo.name
+                                - let arr = tipo.url.split('/')
+                                a(href="/types/type?id="+arr[arr.length - 2])= tipo.name

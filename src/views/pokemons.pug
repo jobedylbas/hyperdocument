@@ -1,0 +1,51 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body
+                    h5.card-title='Pokemons'
+
+                    table.table.table-striped
+                        thead
+                            tr
+                            th(scope='col') Nome
+                            th(scope='col') Imagem
+                            th(scope='col') Tipo(s)
+                        tbody
+                            each pokemon in pokemons
+                                tr
+                                td
+                                    a(href='/pokemons/pokemon?id='+pokemon.id)= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                                td
+                                    img(src=pokemon.sprites.other['official-artwork'].front_default, style='width:96px; height:96px;')
+                                td
+                                    each pokemonTypes in pokemon.types
+                                            a(href=pokemonTypes.type.url)= pokemonTypes.type.name
+                                            | , 
+                                tr
+                    .d-flex.justify-content-center 
+                        ul.pagination
+                            if offset <= 0
+                                li.page-item.disabled
+                                    span.page-link Página Anterior
+                                li.page-item.active
+                                    a.page-link 1
+                                li.page-item
+                                    a.page-link(href='pokemons?offset='+(offset+10)) 2
+                                li.page-item
+                                    a.page-link(href='pokemons?offset='+(offset+20)) 3
+                            else
+                                li.page-item
+                                    a.page-link(href='pokemons?offset='+(offset-10)) Página Anterior
+                                li.page-item
+                                    a.page-link(href='pokemons?offset='+(offset-10))= offset/10
+                                li.page-item.active
+                                    a.page-link= (offset+10)/10
+                                li.page-item
+                                    a.page-link(href='pokemons?offset='+(offset+10))= (offset+20)/10
+                            li.page-item
+                                a.page-link(href='pokemons?offset='+(offset+10)) Próxima Página

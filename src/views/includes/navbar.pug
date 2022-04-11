@@ -3,5 +3,10 @@
     ol.breadcrumb.m-0.p-0
       li.breadcrumb-item
         a(href='/') Página Inicial
-      //- li.breadcrumb-item.active(aria-current='page') Library
-  
+      each breadcrumb in breadcrumbs
+        if (breadcrumb === breadcrumbs[breadcrumbs.length -1])
+          li.breadcrumb-item.active(aria-current='page')
+            = breadcrumb
+        else 
+          li.breadcrumb-item
+            a(href=breadcrumb.path)= breadcrumb.name
