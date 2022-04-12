@@ -1,0 +1,40 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body.flex
+                    h5.card-title= move.name 
+                    div.m-5
+                        table.table.m-2
+                            thead
+                            tbody
+                                tr
+                                td id
+                                td= move.id
+                                tr
+                                td Poder base
+                                td= move.power 
+                                tr
+                                td Power points (PP)
+                                td= move.pp
+                                tr
+                                td Precisão
+                                td= move.accuracy
+                                tr
+                                td Tipo
+                                td
+                                    - let arr = move.type.url.split('/')
+                                    - let typeName = move.type.name.charAt(0).toUpperCase() + move.type.name.slice(1)
+                                    a(href='/type?id='+(arr[arr.length-2]))= typeName
+                                tr
+                                td Pokemons
+                                td
+                                    each pokemon in move.learned_by_pokemon
+                                        - let pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                                        a(href='/pokemons/pokemon?id='+(pokemon.url))= pokemonName
+                                        | , 
+                                tr

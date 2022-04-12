@@ -1,0 +1,45 @@
+extends layout 
+
+block content
+    main
+        include includes/sidebar
+        .container
+            include includes/navbar
+            .card.m-2
+                .card-body
+                    h5.card-title='Movimentos'
+
+                    table.table.table-striped
+                        thead
+                            tr
+                            th(scope='col') Nome
+                        tbody
+                            each move in moves.results
+                                tr
+                                td
+                                    - let arr = move.url.split('/')
+                                    - let moveName = move.name.charAt(0).toUpperCase() + move.name.slice(1)
+                                    a(href='moves/move?id='+arr[arr.length-2])= moveName
+                                tr
+                    .d-flex.justify-content-center 
+                        ul.pagination
+                            if offset <= 0
+                                li.page-item.disabled
+                                    span.page-link Página Anterior
+                                li.page-item.active
+                                    a.page-link 1
+                                li.page-item
+                                    a.page-link(href='moves?offset='+(offset+10)) 2
+                                li.page-item
+                                    a.page-link(href='moves?offset='+(offset+20)) 3
+                            else
+                                li.page-item
+                                    a.page-link(href='moves?offset='+(offset-10)) Página Anterior
+                                li.page-item
+                                    a.page-link(href='moves?offset='+(offset-10))= offset/10
+                                li.page-item.active
+                                    a.page-link= (offset+10)/10
+                                li.page-item
+                                    a.page-link(href='moves?offset='+(offset+10))= (offset+20)/10
+                            li.page-item
+                                a.page-link(href='moves?offset='+(offset+10)) Próxima Página

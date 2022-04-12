@@ -37,11 +37,13 @@ router.get('/pokemons/pokemon', async function (req, res, next) {
   let response = await fetch('https://pokeapi.co/api/v2/pokemon/'+req.query.id)
   let data = await response.json()
   let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+
+  console.log(data)
   res.render('pokemon', { pokemon: data, breadcrumbs: [{name: "Pokemons", path: '/pokemons'}, dataName] })
 })
 
 router.get('/pokemons', async function (req, res, next) {
-  let response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset='+req.query.offset+'&limit='+10)
+  let response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset='+req.query.offset+'&limit=10')
   let data = await response.json()
 
   let pokemons = await Promise.all(data.results.map(async (item) => {
@@ -68,6 +70,21 @@ router.get('/types/type', async function (req, res, next) {
   let path = [{name: "Tipos", path: "types"}, dataName]
   
   res.render('type', { response: data, breadcrumbs: path })
+})
+
+router.get('/moves', async function (req, res, next) {
+  let response = await fetch('https://pokeapi.co/api/v2/move/?offset='+req.query.offset+'&limit=10')
+  let data = await response.json()
+
+  res.render('moves', { moves: data, offset: parseInt(req.query.offset), breadcrumbs: ["Movimentos"] })
+})
+
+router.get('/moves/move', async function (req, res, next) {
+  let response = await fetch('https://pokeapi.co/api/v2/move/'+req.query.id)
+  let data = await response.json()
+
+  let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+  res.render('move', { move: data, breadcrumbs: [{ name: 'Movimentos', path: '/moves' }, dataName]} )
 })
 
 module.exports = router

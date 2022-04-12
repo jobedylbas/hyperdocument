@@ -23,8 +23,10 @@ block content
                                 td
                                     img(src=pokemon.sprites.other['official-artwork'].front_default, style='width:96px; height:96px;')
                                 td
-                                    each pokemonTypes in pokemon.types
-                                            a(href=pokemonTypes.type.url)= pokemonTypes.type.name
+                                    each pokemonType in pokemon.types
+                                            - let arr = pokemonType.type.url.split('/')
+                                            - let typeName = pokemonType.type.name.charAt(0).toUpperCase() + pokemonType.type.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                 tr
                     .d-flex.justify-content-center 

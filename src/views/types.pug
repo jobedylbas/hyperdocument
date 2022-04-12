@@ -20,4 +20,5 @@ block content
                         each tipo in response.results
                             li.list-group-item 
                                 - let arr = tipo.url.split('/')
-                                a(href="/types/type?id="+arr[arr.length - 2])= tipo.name
+                                - let typeName = tipo.name.charAt(0).toUpperCase() + tipo.name.slice(1)
+                                a(href="/types/type?id="+arr[arr.length - 2])= typeName

@@ -33,21 +33,25 @@ block content
                                 tr
                                 td Tipos
                                 td
-                                    each pokemonTypes in pokemon.types
-                                            a(href=pokemonTypes.type.url)= pokemonTypes.type.name
-                                            | , 
+                                    each pokemonType in pokemon.types
+                                        - let arr = pokemonType.type.url.split('/')
+                                        - let typeName = pokemonType.type.name.charAt(0).toUpperCase() + pokemonType.type.name.slice(1)
+                                        a(href='/types/type?id='+arr[arr.length-2])= typeName
+                                        | , 
                                 tr
                                 td Habilidades
                                 td 
                                     each pokemonAbility in pokemon.abilities
-                                        a(href=pokemonAbility.ability.url)= pokemonAbility.ability.name
+                                        = pokemonAbility.ability.name
                                         | , 
                                 tr 
                                 td Movimentos
                                 td
-                                    each pokemonMoves in pokemon.moves
-                                            a(href=pokemonMoves.move.url)= pokemonMoves.move.name
-                                            | , 
+                                    each pokemonMove in pokemon.moves
+                                        - let arr = pokemonMove.move.url.split('/')
+                                        - let moveName = pokemonMove.move.name.charAt(0).toUpperCase() + pokemonMove.move.name.slice(1)
+                                        a(href='/moves/move?id='+arr[arr.length-2])= moveName
+                                        | , 
                                 tr
                                 - var statNames = ['Vida', 'Ataque', 'Defesa', 'Ataque Especial', 'Defesa Especial', 'Velocidade']
                                 each stat in [0, 1, 2, 3, 4, 5]

@@ -18,7 +18,8 @@ block content
                                     td
                                         each t in response.damage_relations.double_damage_from
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 if response.damage_relations.double_damage_to.length != 0
@@ -26,7 +27,8 @@ block content
                                     td
                                         each t in response.damage_relations.double_damage_to
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 if response.damage_relations.half_damage_from != 0
@@ -34,7 +36,8 @@ block content
                                     td
                                         each t in response.damage_relations.half_damage_from
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 if response.damage_relations.half_damage_to != 0
@@ -42,7 +45,8 @@ block content
                                     td
                                         each t in response.damage_relations.half_damage_to
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 if response.damage_relations.no_damage_from != 0
@@ -50,7 +54,8 @@ block content
                                     td
                                         each t in response.damage_relations.no_damage_from
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 if response.damage_relations.no_damage_to != 0
@@ -58,7 +63,8 @@ block content
                                     td
                                         each t in response.damage_relations.no_damage_to
                                             - let arr = t.url.split('/')
-                                            a(href='/type?id='+(arr[arr.length-2]))= t.name
+                                            - let typeName = t.name.charAt(0).toUpperCase() + t.name.slice(1)
+                                            a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                             | , 
                                     tr
                                 td Classe
@@ -67,6 +73,8 @@ block content
                                 td Pokemons
                                 td
                                     each poke in response.pokemon
-                                        a(href='/pokemons/pokemon?id='+(poke.pokemon.url))= poke.pokemon.name
+                                        - let arr = poke.pokemon.url.split('/')
+                                        - let pokeName = poke.pokemon.name.charAt(0).toUpperCase() + poke.pokemon.name.slice(1)
+                                        a(href='/pokemons/pokemon?id='+(arr[arr.length-2]))= pokeName
                                         | , 
                                 tr
