@@ -8,11 +8,47 @@ block content
             .card.m-2
                 .card-body
                     h5.card-title='Movimentos'
+                    p.card-text 
+                    | Um movimento também pode ser chamado de ataque ou habilidade e existem cerca de 826 movimentos catalogados.
+                    | Os Pokémons utilizam movimentos durante as batalhas, podendo utilizar apenas um em cada rodada. 
+                    | Em alguns jogos os movimentos também podem ser utilizadas fora de batalhas.
 
-                    table.table.table-striped
+                    p.card-text 
+                    | Um 
+                    a(href='/pokemons?offset=0') Pokémon 
+                    | pode saber de um até quatro movimentos ao mesmo momento dentro um grupo 
+                    | predeterminado de movimentos. Existem Pokémons que possuem grupos predeterminados de até 250 movimentos
+                    | diferentes enquanto outros com apenas 1 movimento, como Mew e Ditto respectivamente.
+
+                    p.card-text
+                    | Os movimentos possuem os seguintes atributos:
+                    ul.mt-3.list-group.col-sm-7
+                        li.list-group-item 
+                            p.mb-0
+                                strong id: 
+                                | Identificador.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Poder base: 
+                                | Utilizado para calcular o dano no oponente.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Power points (PP): 
+                                | Energia requerida para realizar o movimento.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Precisão (%): 
+                                | Chance de acertar o oponente.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Tipo: 
+                                | Utilizado para calcular o dano baseado no oponente. (Veja mais em 
+                                a(href='/types') Tipos
+                                | )
+                    table.table.table-striped.mt-3
                         thead
                             tr
-                            th(scope='col') Nome
+                            th(scope='col') Lista de tipos
                         tbody
                             each move in moves.results
                                 tr
