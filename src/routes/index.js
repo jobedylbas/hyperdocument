@@ -57,7 +57,7 @@ router.get('/types', async function (req, res, next) {
   let response = await fetch('https://pokeapi.co/api/v2/type/')
   let data = await response.json()
 
-  res.render('types', { response: data })
+  res.render('types', { response: data, breadcrumbs: ["Tipos"] })
 })
 
 router.get('/types/type', async function (req, res, next) {
