@@ -7,7 +7,69 @@ block content
             include includes/navbar
             .card.m-2
                 .card-body
-                    h5.card-title='Pokemons'
+                    h5.card-title='Pokémons'
+                    p.card-text 
+                    | Os Pokémons em si são personagens baseados em animais, plantas, objetos e outros elementos pertencentes à 
+                    | franquia homônima de posse da Nintendo. Os Pokémons existem 
+                    | em diversas mídias como anime, jogos de cartas, filmes e jogos. O primeiro jogo foi lançado em 1996 para 
+                    | Game Boy.
+
+                    p.card-text 
+                    | Os jogos tem como dinâmica principal as famigeradas batalhas Pokémon que é feita em turnos,
+                    | para isso, se utilizam diversos atributos para calcular ataques, defesa e efeitos sobre os Pokémons.
+                    | Um Pokémon possui os seguintes atributos: 
+
+                    ul.mt-3.list-group.col-sm-8
+                        li.list-group-item 
+                            p.mb-0
+                                strong id: 
+                                | Identificador.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Peso (Kg): 
+                                | Peso do Pokémon.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Altura: 
+                                | Altura do Pokémon.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Tipo: 
+                                | Utilizado para calcular o dano recebido de um movimento. (Veja mais em 
+                                a(href='/types') Tipos
+                                | )
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Habilidades: 
+                                | Movimentos que causam algum tipo de efeito.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Movimentos: 
+                                | Ataque que pode ser usado para causar dano. (Veja mais em 
+                                a(href='/types') Movimentos
+                                | )
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Vida: 
+                                | Pontos de ataque recebidos para ser derrotado.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Ataque: 
+                                | Utilizado para calcular o dano causado no oponente por um movimento.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Ataque Especial: 
+                                | Utilizado para calcular o dano causado no oponente por um movimento especial.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Defesa Especial: 
+                                | Utilizado para calcular o dano recebido do oponente por um movimento especial.
+                        li.list-group-item 
+                            p.mb-0 
+                                strong Velocidade: 
+                                | Pontos de ataque recebidos para ser derrotado.
+                    
+                    h5.mt-3.card-title='Lista de Pokémons'
 
                     table.table.table-striped
                         thead
