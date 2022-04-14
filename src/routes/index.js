@@ -97,7 +97,7 @@ router.get('/moves/move', async function (req, res, next) {
   let data = await response.json()
 
   let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
-  res.render('move', { move: data, breadcrumbs: [{ name: 'Movimentos', path: '/moves' }, dataName]} )
+  res.render('move', { move: data, breadcrumbs: [{ name: 'Movimentos', path: '/moves?offset=0' }, dataName]} )
 })
 
 module.exports = router
