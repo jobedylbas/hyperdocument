@@ -10,6 +10,10 @@ router.get('/about', async function (req, res, next) {
   res.render('about', { breadcrumbs: ["Sobre"] })
 })
 
+router.get('/references', async function (req, res, next) {
+  res.render('references', { breadcrumbs: ["Referências"] })
+})
+
 router.get('/generations', async function (req, res, next) {
   res.render('generations', { breadcrumbs: ["Gerações"] })
 })
