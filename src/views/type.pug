@@ -8,13 +8,13 @@ block content
             .card.m-2
                 .card-body.flex
                     h5.card-title= 'Tipo ' + response.name.charAt(0).toUpperCase() + response.name.slice(1)
-                    div.m-5
-                        table.table.m-2
+                    div.mt-3
+                        table.table
                             thead
                             tbody
                                 tr
                                 if response.damage_relations.double_damage_from != 0
-                                    td Dobro de dano de
+                                    td.col-2 Dobro de dano de
                                     td
                                         each t in response.damage_relations.double_damage_from
                                             - let arr = t.url.split('/')

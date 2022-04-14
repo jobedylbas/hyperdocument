@@ -7,9 +7,9 @@ block content
             include includes/navbar
             .card.m-2
                 .card-body.flex
-                    h5.card-title= move.name 
-                    div.m-5
-                        table.table.m-2
+                    h5.card-title= move.name.charAt(0).toUpperCase() + move.name.slice(1)
+                    div.mt-3
+                        table.table
                             thead
                             tbody
                                 tr
@@ -29,7 +29,7 @@ block content
                                 td
                                     - let arr = move.type.url.split('/')
                                     - let typeName = move.type.name.charAt(0).toUpperCase() + move.type.name.slice(1)
-                                    a(href='/type?id='+(arr[arr.length-2]))= typeName
+                                    a(href='/types/type?id='+(arr[arr.length-2]))= typeName
                                 tr
                                 td Pokemons
                                 td
