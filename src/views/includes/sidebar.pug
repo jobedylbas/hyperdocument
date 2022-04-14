@@ -1,8 +1,12 @@
 .d-flex.flex-column.flex-shrink-0.p-3.bg-white(style='width: 280px;')
-    a.d-flex.align-items-center.pb-3.mb-3.link-dark.text-decoration-none.border-bottom(href='/')
+    a.d-flex.align-items-center.pb-3.link-dark.text-decoration-none(href='/')
         img.me-2.d-sm-none.d-lg-inline(src='/public/images/pokeball.svg', alt='Poquebola', width="24", height="24")
         span.fs-5.fw-semibold Pokédex
-    ul.list-unstyled.ps-0
+    form.d-flex.mb-3(id="search-form")
+        input.form-control.me-2(type='search' placeholder='Nome ou id' aria-label='Pokémon', value='', id='search-bar')
+        button.btn.btn-primary(type='submit', id='search-btn')
+            i.bi.bi-search
+    ul.list-unstyled.ps-0.border-top
         li.mb-1
             ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
                 li
@@ -20,7 +24,7 @@
             #generations-collapse.collapse
                 ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
                     li
-                        a.link-dark.rounded(href="/generation?id=1&limit=151") 1º Geração: Região Kanto
+                        a.link-dark.rounded(href="/generation?id=1&limit=151&offset=0") 1º Geração: Região Kanto
                     li
                         a.link-dark.rounded(href="/generation?id=2&limit=100&offset=151") 2º Geração: Região Johto
                     li
@@ -42,49 +46,45 @@
             #types-collapse.collapse
                 ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
                     li
-                        a.link-dark.rounded(href='types/type?id=7') Bug
+                        a.link-dark.rounded(href='/types/type?id=7') Bug
                     li
-                        a.link-dark.rounded(href='types/type?id=18') Dairy
+                        a.link-dark.rounded(href='/types/type?id=18') Dairy
                     li
-                        a.link-dark.rounded(href='types/type?id=17') Dark
+                        a.link-dark.rounded(href='/types/type?id=17') Dark
                     li
-                        a.link-dark.rounded(href='types/type?id=16') Dragon
+                        a.link-dark.rounded(href='/types/type?id=16') Dragon
                     li
-                        a.link-dark.rounded(href='types/type?id=13') Electric
+                        a.link-dark.rounded(href='/types/type?id=13') Electric
                     li
-                        a.link-dark.rounded(href='types/type?id=2') Fighting
+                        a.link-dark.rounded(href='/types/type?id=2') Fighting
                     li
-                        a.link-dark.rounded(href='types/type?id=10') Fire
+                        a.link-dark.rounded(href='/types/type?id=10') Fire
                     li
-                        a.link-dark.rounded(href='types/type?id=3') Flying
+                        a.link-dark.rounded(href='/types/type?id=3') Flying
                     li
-                        a.link-dark.rounded(href='types/type?id=8') Ghost
+                        a.link-dark.rounded(href='/types/type?id=8') Ghost
                     li
-                        a.link-dark.rounded(href='types/type?id=12') Grass
+                        a.link-dark.rounded(href='/types/type?id=12') Grass
                     li
-                        a.link-dark.rounded(href='types/type?id=5') Ground
+                        a.link-dark.rounded(href='/types/type?id=5') Ground
                     li
-                        a.link-dark.rounded(href='types/type?id=15') Ice
+                        a.link-dark.rounded(href='/types/type?id=15') Ice
                     li
-                        a.link-dark.rounded(href='types/type?id=1') Normal
+                        a.link-dark.rounded(href='/types/type?id=1') Normal
                     li
-                        a.link-dark.rounded(href='types/type?id=4') Poison
+                        a.link-dark.rounded(href='/types/type?id=4') Poison
                     li
-                        a.link-dark.rounded(href='types/type?id=14') Psychic
+                        a.link-dark.rounded(href='/types/type?id=14') Psychic
                     li
-                        a.link-dark.rounded(href='types/type?id=6') Rock
+                        a.link-dark.rounded(href='/types/type?id=6') Rock
                     li
-                        a.link-dark.rounded(href='types/type?id=10002') Shadow
+                        a.link-dark.rounded(href='/types/type?id=10002') Shadow
                     li
-                        a.link-dark.rounded(href='types/type?id=9') Steel
+                        a.link-dark.rounded(href='/types/type?id=9') Steel
                     li
-                        a.link-dark.rounded(href='types/type?id=10001') Unknown
+                        a.link-dark.rounded(href='/types/type?id=10001') Unknown
                     li
-                        a.link-dark.rounded(href='types/type?id=11') Water
-
-                        
-
-                            
+                        a.link-dark.rounded(href='/types/type?id=11') Water   
         li.border-top.my-3
         li.mb-1
             button.btn.btn-toggle.align-items-center.rounded.collapsed(data-bs-toggle='collapse' data-bs-target='#account-collapse' aria-expanded='false')

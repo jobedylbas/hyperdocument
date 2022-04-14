@@ -38,12 +38,21 @@ router.get('/generation', async function (req, res, next) {
 })
 
 router.get('/pokemons/pokemon', async function (req, res, next) {
-  let response = await fetch('https://pokeapi.co/api/v2/pokemon/'+req.query.id)
-  let data = await response.json()
-  let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+  var data = {}
+  
+  if (req.query.id.length === 0){
+    res.render( 'error' , { breadcrumbs: []} )
+  } else {
+    let response = await fetch('https://pokeapi.co/api/v2/pokemon/'+req.query.id)
 
-  console.log(data)
-  res.render('pokemon', { pokemon: data, breadcrumbs: [{name: "Pokemons", path: '/pokemons'}, dataName] })
+    try {
+      data = await response.json()
+      let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+      res.render('pokemon', { pokemon: data, breadcrumbs: [{name: "Pokemons", path: '/pokemons'}, dataName] })
+    } catch(e) {
+      res.render( 'error' , { breadcrumbs: []} )
+    }
+  }
 })
 
 router.get('/pokemons', async function (req, res, next) {
